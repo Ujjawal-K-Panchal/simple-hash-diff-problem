@@ -1,0 +1,6 @@
+ImageHash==4.3.0
+numpy==1.23.3
+Pillow==9.2.0
+PyWavelets==1.4.1
+scipy==1.9.1
+six==1.16.0
