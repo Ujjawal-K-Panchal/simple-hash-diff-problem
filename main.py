@@ -12,12 +12,12 @@ if __name__ == "__main__":
     images = [Image.open(f"imgs/{x}") for x in os.listdir("imgs")]
     hashes = np.array([whash(img) for img in images])
     threshold
-    diffs = [] #will be a 2d matrix.
+    diffs = [] #will be a 2d matrix in a little while.
     for i, ele in enumerate(hashes):
-        diffs.append(np.array(hashes) - ele)
+        diffs.append(np.array(hashes) - ele) #vectorization!
     
     diffs = np.array(diffs)
-    diffs_mat = np.vstack(diffs)
+    diffs_mat = np.vstack(diffs) #vertical stack to make matrix.
     print(diffs)
 
     duplicate_x, duplicate_y = np.where(diffs_mat < threshold)
@@ -25,6 +25,7 @@ if __name__ == "__main__":
     indexes = [(x, y) for (x, y) in zip(duplicate_x, duplicate_y) if x != y]
     for d1, d2 in indexes:
         print(f"{hashes[d1]}, {hashes[d2]} are duplicates.")
+        
 
 
 
